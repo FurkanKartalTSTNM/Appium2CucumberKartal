@@ -3,22 +3,13 @@ Feature: OpenApplication
   @BasicTiklamalarIOS01
   Scenario: BasicTiklamalarIOS01
     Given Wait 5 seconds
-    Then Element with xpath "//XCUIElementTypeButton[@name='Markalar']" is clicked
-    Then Wait 2 seconds
-    Then Element with xpath "//XCUIElementTypeButton[@name='Kategoriler']" is clicked
-    Then Wait 2 seconds
-    Then Element with xpath "//XCUIElementTypeButton[@name='Kampanyalar']" is clicked
-    Then Wait 2 seconds
-    Then Element with xpath "//XCUIElementTypeButton[@name='Markalar']" is clicked
-    Then Wait 2 seconds
-    Then Element with xpath "//XCUIElementTypeButton[@name='Kategoriler']" is clicked
-    Then Wait 2 seconds
-    Then Element with xpath "//XCUIElementTypeButton[@name='Kampanyalar']" is clicked
-    Then Wait 2 seconds
-    Then Element with xpath "//XCUIElementTypeButton[@name='Markalar']" is clicked
-    Then Wait 2 seconds
-
-    Then Wait 2 seconds
+    Then Konum izni popup'ında varsa "İzin Ver" butonuna tıkla
+    Then Konum izni popup'ında varsa "İzin Ver" butonuna tıkla
+    Then Konum izni popup'ında varsa "Uygulamayı Kullanırken İzin Ver" butonuna tıkla
+    Then Konum izni popup'ında varsa "Allow While Using App" butonuna tıkla
+    Then Konum izni popup'ında varsa "İzin Ver" butonuna tıkla
+    Then Konum izni popup'ında varsa "Tamam" butonuna tıkla
+    Then Konum izni popup'ında varsa "İzin Ver" butonuna tıkla
 
   @BasicTiklamalarIOS02
   Scenario: BasicTiklamalarIOS02

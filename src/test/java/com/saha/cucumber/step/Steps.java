@@ -5,12 +5,14 @@ import com.testinium.driver.TestiniumIOSDriver;
 import com.testinium.util.Constants;
 import com.testinium.util.TestiniumEnvironment;
 
+import com.thoughtworks.gauge.Step;
 import io.appium.java_client.AppiumDriver;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Platform;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.DesiredCapabilities;
@@ -22,6 +24,7 @@ import org.slf4j.LoggerFactory;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.time.Duration;
+import java.util.HashMap;
 import java.util.NoSuchElementException;
 import java.util.concurrent.TimeUnit;
 
@@ -118,5 +121,20 @@ public class Steps {
     @Then("Element with xpath {string} is clicked")
     public void element_with_xpath_is_clicked(String xpath) {
         driver.findElement(By.xpath(xpath)).click();
+    }
+
+    @Then("Konum izni popup'ında varsa {string} butonuna tıkla")
+    public void konumIzniAlertVarsaTikla(String text) {
+        try {
+            HashMap<String, String> args = new HashMap<>();
+            args.put("action", "accept");
+            args.put("buttonLabel", text);
+
+            ((JavascriptExecutor) driver).executeScript("mobile: alert", args);
+            System.out.println("mobile: alert ile '" + text + "' butonuna tıklandı.");
+        } catch (Exception e) {
+            System.out.println("Alert bulunamadı veya '" + text + "' butonu tıklanamadı. Devam ediliyor...");
+
+        }
     }
 }
